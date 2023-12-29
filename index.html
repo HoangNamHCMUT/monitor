@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<!--*************************************************************** HEADER SECTION ************************************************************-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Temperature&Humidity Supervisor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Coiny&family=Roboto+Slab:wght@400;500&family=Sono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="website.css" />
+</head>
+
+<body>
+    <!--**************************************************************** BODY SECTION *************************************************************-->
+    <!-- Create a box to contain the body, and align this box to center of the webpage -->
+    <div class="body-container">
+        <header>
+            <!-- Picture -->
+            <div class="header-picture-div">
+                <img src="./Pictures/Sun.jpg" class="header-picture">
+                <img src="./Pictures/TemperatureAndHumidity.jpg" class="header-picture">
+                <img src="./Pictures/Water.jpg" class="header-picture">
+            </div>
+
+            <!-- Register/Login Button -->
+            <div class="register-login-button">
+                <button class="public-ip-button button-style-3">Send</button>
+                <input class="public-ip-search" placeholder="Backend's public IP Address" type="text">
+                <button class="user-button button-style-3">User</button>
+                <button class="register-button button-style-3">Register</button>
+                <button class="login-button button-style-3">Login</button>
+            </div>
+
+            <!-- header -->
+            <h1 class="website-header">TEMPERATURE & HUMIDITY SUPERVISOR</h1>
+
+            <!-- Description -->
+            <p class="description-para">
+                This website is provided to user for supervising the temperature and humidity changes
+            </p>
+        </header>
+
+        <!--******************* REGISTER/LOGIN FORM ************************-->
+        <div class="instruction-form-div">
+            <!-- Instruction -->
+            <div class="instruction-picture-div">
+                <!-- Text -->
+                <ul>
+                    <p class="instruction-para">Some instructions to use this Website:</p>
+                    <li>* Make sure you have <strong>Register/Login</strong> your account before using this website.</li>
+                    <li>* Click the <strong>Expand button</strong> to open the side bar buttons.</li>
+                    <li>* Enter the <strong>IP address</strong> of the ESP32 Webserver to use the <strong>Realtime communication</strong> mode.</li>
+                    <li>* In the <strong>Realtime communication</strong> mode, you can transfer data directly between website and ESP32 (such as sending command, getting status, sending backend IP address ...).</li>
+                    <li>* For filtering purpose, clicking <strong>Open Filter button</strong> to open the filter table. Then choosing which kind of data you wanna filter (tempearture or humidity) by clicking on the button next to the Open Filter button. After that, choosing the appropritate filter option (based on time/value).</li>
+                    <li>* Double click on <strong>Logout button</strong> for logout.</li>
+                </ul>
+
+                <!-- Picture -->
+                <div class="instruction-picture">
+                    <img class="temperature-picture" src="./Pictures/Temperature_Control_System.jpg"
+                        alt="temperature-picture">
+                    <img class="humidity-picture" src="./Pictures/Air_conditioning.jpg" alt="humidity-picture">
+                </div>
+            </div>
+
+            <!-- Register form -->
+            <form class="register-form">
+                <input type="text" placeholder="✉️ Email">
+                <input type="text" placeholder="📞 Phone Number">
+                <input type="text" placeholder="🤵 Full Name">
+                <input class="register-password" type="password" placeholder="🔑 Password">
+                <input class="register-password" type="password" placeholder="🔑 Confirm Password">
+                <!-- An element to toggle between password visibility -->
+                <div class="checkbox-div">
+                    <input class="checkbox-register" type="checkbox" onclick="ShowRegisterPassword() ">
+                    <p>Show password</p>
+                </div>
+
+                <select>
+                    <option value="">👉 Choose your permission</option>
+                    <option value="User">User 👀</option>
+                    <option value="Admin">Admin 👀+📝</option>
+                </select>
+            </form>
+
+            <!-- Login form -->
+            <form class="login-form">
+                <img class="login-image" src="./Pictures/Login.jpg">
+                <input type="text" placeholder="✉️ Email">
+                <input class="login-password" type="password" placeholder="🔑 Password">
+                <!-- An element to toggle between password visibility -->
+                <div class="checkbox-div">
+                    <input class="checkbox-login" type="checkbox" onclick="ShowLoginPassword()">
+                    <p>Show password</p>
+                </div>
+            </form>
+        </div>
+
+        <!--************************ SIDE BAR ******************************-->
+        <!-- Expand button -->
+        <div class="expand">
+            <ion-icon class="expand-button" name="menu"></ion-icon>
+        </div>
+
+        <!-- Side bar buttons -->
+        <div class="side-bar">
+            <div class="side-bar-field">
+                <ion-icon class="shrink-button" name="arrow-back-outline"></ion-icon>
+            </div>
+            <div class="side-bar-field">
+                <ion-icon class="ws-connect-button" name="caret-forward-circle-outline"></ion-icon>
+                <ion-icon class="ws-disconnect-button" name="pause-circle-outline"></ion-icon>
+                <input class="esp32-ip-search" type="text" placeholder="ESP32's IP">
+            </div>
+            <div class="side-bar-field">
+                <ion-icon class="backend-ip-button" name="server-outline"></ion-icon>
+                <input class="backend-ip-search" type="text" placeholder="Private IP">
+            </div>
+            <div class="side-bar-field">
+                <ion-icon class="send-button" name="send-outline"></ion-icon>
+                <ion-icon class="stop-button" name="stop-circle-outline"></ion-icon>
+                <p class="send-state">NA</p>
+            </div>
+            <div class="side-bar-field">
+                <ion-icon name="notifications-outline" class="buzzer-button"></ion-icon>
+                <p class="buzzer-state">OFF</p>
+            </div>
+            <div class="side-bar-field">
+                <ion-icon class="bulb-button" name="bulb-outline"></ion-icon>
+                <p class="bulb-state">NA</p>
+            </div>
+            <div class="side-bar-field">
+                <input class="date-search" type="date">
+            </div>
+            <div class="side-bar-field">
+                <ion-icon class="average-button" name="calculator-outline"></ion-icon>
+                <p class="average-text">Average</p>
+            </div>
+            <div class="side-bar-field">
+                <ion-icon class="export-button" name="download-outline"></ion-icon>
+                <p>Export to Excel</p>
+            </div>
+            <div class="side-bar-field">
+                <ion-icon  class="delete-button" name="trash-outline"></ion-icon>
+                <p>Delete</p>
+            </div>
+        </div>
+
+        <!--********************** MAIN SECTION ****************************-->
+        <main>
+            <!-- Supervisor Section -->
+            <div class="temperature-humidity-table">
+                <!-- Temperature supervisor -->
+                <div class="temperature-table">
+                    <!-- button to get temperature -->
+                    <div class="temperature-button-div">
+                        <button class="temperature-button button-style-4">SET ☀️</button>
+                    </div>
+                    <!-- display temperature result
+                    <div class="temperature-display-div">
+                        <output class="temperature-result"></output>
+                    </div> -->
+                    <div class="temperature-set-div">
+                        <input class="temperature-lowest" type="text" placeholder="Lowest">
+                        <input class="temperature-highest" type="text" placeholder="Highest">
+                    </div>
+                    <div class="degrees-text-div">
+                        <p class="degrees-text">&deg;C</p>
+                    </div>
+                </div>
+
+                <!-- Open-Filter-Button -->
+                <button class="open-filter-button button-style-5">Open Filter</button>
+                <button class="option-button button-style-5">Temperature</button>
+
+                <!-- Humidity supervisor table  -->
+                <div class="humidity-table">
+                    <!-- button to get humidity -->
+                    <div class="humidity-button-div">
+                        <button class="humidity-button button-style-4"> Set 💧</button>
+                    </div>
+                    <!-- display humidity result
+                    <div class="humidity-display-div">
+                        <output class="humidity-result"></output>
+                    </div> -->
+                    <div class="humidity-set-div">
+                        <input class="humidity-lowest" type="text" placeholder="Lowest">
+                        <input class="humidity-highest" type="text" placeholder="Highest">
+                    </div>
+                    <div class="percents-text-div">
+                        <p class="percents-text">%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line chart using canvas-->
+            <!-- <div class="graph">
+                <canvas id="temperature-chart"></canvas>
+                <canvas id="humidity-chart"></canvas>
+            </div> -->
+            <!-- Line chart using Google Chart API -->
+            <div class="clock-container">
+                <div id="temperature-clock"></div>
+                <div id="humidity-clock"></div>
+            </div>
+            <div id="temperature-chart"></div>
+            <div id="humidity-chart"></div>
+
+            <!-- Filter Section -->
+            <div class="filter-table-div">
+                <!-- Filter Table -->
+                <table class="filter-table" id="tblData">
+                    <tr>
+                        <th>Time</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </table>
+                <!-- Filter Buttons -->
+                <div class="filter-button-div">
+                    <button class="time-button button-style-2">Time</button>
+                    <button class="value-button button-style-2">Value</button>
+                    <button class="none-button button-style-1">None-Filter</button>
+                    <button class="clear-button button-style-1">Clear</button>
+                    <button class="time-option-button-latest button-style-1">latest</button>
+                    <button class="time-option-button-oldest button-style-1">Oldest</button>
+                    <button class="value-option-button-smallest button-style-1">Ascending</button>
+                    <button class="value-option-button-largest button-style-1">Descending</button>
+                    <button class="back-button button-style-2">🔙 Back</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!--************************************************************** JS Includes *****************************************************************-->
+
+    <!-- Include Google Chart API -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Ionicons usage -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- incorporate jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- include Chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- include javascript -->
+    <script src="website.js" charset="utf-8"></script>
+</body>
+
+</html>

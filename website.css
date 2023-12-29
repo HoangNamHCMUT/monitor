@@ -1,0 +1,832 @@
+/* Reset the margin and padding of all the elements and consider each of them as a box  */
+/* More convenient to edit */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* align the body to center of the page */
+.body-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 500px;
+}
+
+/* Edit all the element in the body */
+body {
+  background-color: #f0f9ff;
+  padding: 40px;
+  letter-spacing: -1px; /* Space between letters */
+}
+
+/* Edit picture */
+.header-picture-div {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: space-between; /* horizontal alignment */
+}
+.header-picture {
+  width: 120px;
+  display: flex;
+  margin: 0 auto;
+}
+
+/* Edit register/login button */
+.register-login-button {
+  display: flex;
+  justify-content: end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.register-login-button button {
+  border: 1px solid;
+  border-radius: 30px;
+  font-family: "Coiny", sans-serif;
+  font-size: 18px;
+  width: 143px;
+  padding: 4px 5px;
+}
+
+/* Edit the header of website */
+.website-header {
+  font-family: "Coiny", serif;
+  text-align: center;
+  font-size: 40px;
+  height: 50px;
+  font-weight: bold;
+  color: rgb(88, 128, 182);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Edit the description about website  */
+.description-para {
+  font-family: "Sono", sans-serif;
+  margin-bottom: 80px;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Edit div containing instruction-picture div and form elements */
+.instruction-form-div {
+  font-family: "Sono", sans-serif;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+/* Edit div containing instruction and picture */
+.instruction-picture-div {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Edit instruction */
+.instruction-para {
+  font-family: "Sono", sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+ul {
+  margin-top: 0px;
+  font-family: "Sono", sans-serif;
+  list-style: none;
+  line-height: 25px;
+  font-size: 18px;
+}
+
+/* Edit picture */
+.instruction-picture {
+  display: flex;
+  justify-content: space-around;
+  gap: 150px;
+}
+
+.instruction-picture img {
+  width: 280px;
+}
+
+.temperature-picture {
+  margin-left: 180px;
+}
+
+.public-ip-search {
+  width: 600px;
+  border-radius: 30px;
+  font-size: 20px;
+  padding-left: 10px;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+/* Edit register form */
+form {
+  font-family: "Sono", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+form input,
+form select {
+  border-width: 1px;
+  width: 300px;
+  height: 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  padding: 18px 18px;
+}
+
+.checkbox-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 280px;
+}
+.checkbox-register, .checkbox-login {
+  width: 20px;
+}
+
+form input::placeholder {
+  color: chocolate;
+  font-weight: bold;
+}
+
+form select {
+  color: rgb(163, 75, 12);
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+form select:hover {
+  cursor: pointer;
+  background-color: rgb(222, 212, 186);
+  color: rgb(96, 44, 6);
+}
+
+.login-image {
+  width: 150px;
+  margin-bottom: 35px;
+  margin-top: 35px;
+}
+
+.expand {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+}
+.expand ion-icon {
+  box-shadow: 2px 3px 2px rgba(0, 0, 0.5);
+  font-size: 40px;
+}
+.expand ion-icon:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  box-shadow: 2px 4px 2px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.expand ion-icon:active {
+  opacity: 0.7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.side-bar {
+  background-color: #f0f9ff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 230px;
+}
+.side-bar-field {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #f0f9ff;
+  gap: 2px;
+  margin-top: 15px;
+}
+.date-search {
+  height: 40px;
+  width: 180px;
+  /* border: none; */
+  border-radius: 10px;
+  padding-left: 30px;
+  font-size: 18px;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+.side-bar-field p {
+  font-family: "Sono", sans-serif;
+  font-size: 18px;
+  margin-left: 25px;
+  font-weight: bold;
+}
+.side-bar-field ion-icon {
+  font-size: 40px;
+  box-shadow: 3px 4px 3px rgba(0, 0, 0.5);
+}
+
+/* .side-bar-field .search-button {
+  font-size: 35px;
+  box-shadow: 3px 3px 3px rgb(15, 39, 138);
+} */
+.side-bar-field ion-icon:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.side-bar-field ion-icon:active {
+  opacity: 0.7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.esp32-ip-search {
+  height: 40px;
+  width: 120px;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 18px;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+.backend-ip-search {
+  height: 40px;
+  width: 120px;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 18px;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+/* Edit temperature supervisor */
+.temperature-humidity-table {
+  font-family: "Sono", sans-serif;
+  margin-top: 100px;
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: space-between; /* horizontal alignment */
+}
+.temperature-table {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: space-between; /* horizontal alignment */
+  flex-shrink: 0; /* don't allow the elements in the div to shrink */
+  border-width: 3px;
+  border-style: hidden;
+  border-color: rgb(21, 11, 11);
+  border-radius: 25% 10%;
+  max-width: 550px;
+  height: 110px;
+  background-image: linear-gradient(
+    135deg,
+    #fb7185,
+    #fda4af,
+    #f43f5e,
+    #fecdd3,
+    #e11d48
+  );
+  box-shadow: 8px 8px 8px rgba(0, 0, 0.5);
+  cursor: pointer;
+}
+.humidity-table {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: space-between; /* horizontal alignment */
+  flex-shrink: 0; /* don't allow the elements in the div to shrink */
+  border-width: 3px;
+  border-style: hidden;
+  border-color: rgb(21, 11, 11);
+  border-radius: 10% 25%;
+  max-width: 550px;
+  height: 110px;
+  /* background-color: rgb(129, 165, 185); */
+  background-image: linear-gradient(
+    135deg,
+    #93c5fd,
+    #bfdbfe,
+    #60a5fa,
+    #bfdbfe,
+    #3b82f6
+  );
+  box-shadow: 8px 8px 8px rgba(0, 0, 0.5);
+}
+
+/* Outline of three div elements in temperature and humidity tables  */
+/* Temperature table */
+.temperature-button-div {
+  display: flex;
+  margin-left: 20px;
+}
+.temperature-set-div {
+  display: flex;
+  margin-left: 20px;
+  gap: 10px;
+}
+.degrees-text-div {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  margin-left: 10px;
+  margin-right: 20px;
+}
+/* Humidity table */
+.humidity-button-div {
+  display: flex;
+  margin-left: 20px;
+}
+.humidity-set-div {
+  display: flex;
+  margin-left: 20px;
+  gap: 10px;
+}
+.percents-text-div {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+/* Edit the Get-temperature button */
+.temperature-button {
+  background-color: rgb(217, 12, 12);
+  color: rgb(233, 233, 233);
+  padding: 10px 16px; /* [top, bottom] + [left, right] */
+  border-radius: 100px;
+  font-size: 22px;
+}
+
+/* Edit the place to display the temperature result */
+.temperature-lowest, .temperature-highest {
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100px;
+  height: 50px;
+  padding-left: 15px;
+  border: none;
+}
+/* Edit the text for displaying temperature unit */
+.degrees-text {
+  color: rgb(217, 12, 12);
+  border-radius: 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Edit the Get-humidity button */
+.humidity-button {
+  background-color: rgb(28, 70, 222);
+  color: rgb(233, 233, 233);
+  padding: 10px 16px;
+  border-radius: 100px;
+  font-size: 22px;
+}
+
+/* Edit the place to display the humidity result */
+.humidity-lowest, .humidity-highest {
+  /* background-color: rgb(222, 99, 99); */
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100px;
+  height: 50px;
+  padding-left: 15px;
+  border: none;
+}
+
+/* Edit the text for displaying humidity unit */
+.percents-text {
+  color: rgb(28, 70, 222);
+  border-radius: 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Edit table for 10 values of temperature and humidity + Filter buttons  */
+.filter-table-div {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  column-gap: 30px;
+  margin: 20px;
+}
+
+/* Edit open filter button */
+.open-filter-button {
+  font-family: "Coiny", sans-serif;
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    #f59e0b,
+    #d97706,
+    #fbbf24,
+    #fcd34d,
+    #a16207
+  );
+}
+
+/* Edit Temperature/Humidity option button */
+.option-button {
+  font-family: "Coiny", sans-serif;
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    #f59e0b,
+    #d97706,
+    #fbbf24,
+    #fcd34d,
+    #a16207
+  );
+}
+
+th,
+td {
+  border: 2px solid rgb(70, 5, 5);
+  text-align: center;
+  font-size: 18px;
+  font-family: "Sono";
+}
+
+.filter-button-div {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 40px 40px 40px 40px 40px; */
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 15px;
+  height: 40px;
+}
+
+.time-button {
+  border: 1.5px dashed rgb(70, 5, 5);
+  border-radius: 20px;
+  color: brown;
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 15px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(232, 223, 223),
+    rgb(234, 190, 230),
+    rgba(206, 137, 204, 0.29),
+    rgb(205, 182, 194)
+  );
+}
+
+.value-button {
+  border: 1.5px dashed rgb(70, 5, 5);
+  border-radius: 20px;
+  color: brown;
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 15px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(232, 223, 223),
+    rgb(234, 190, 230),
+    rgba(206, 137, 204, 0.29),
+    rgb(205, 182, 194)
+  );
+}
+
+.none-button {
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(235, 8, 125),
+    rgb(234, 12, 215),
+    rgba(198, 31, 192, 0.29),
+    rgb(235, 8, 125)
+  );
+}
+
+.clear-button {
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(235, 8, 125),
+    rgb(234, 12, 215),
+    rgba(198, 31, 192, 0.29),
+    rgb(235, 8, 125)
+  );
+}
+
+.back-button {
+  border: 1.5px dashed rgb(70, 5, 5);
+  border-radius: 20px;
+  color: brown;
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 15px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(232, 223, 223),
+    rgb(234, 190, 230),
+    rgba(206, 137, 204, 0.29),
+    rgb(205, 182, 194)
+  );
+}
+
+.time-option-button-oldest {
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(235, 8, 125),
+    rgb(234, 12, 215),
+    rgba(198, 31, 192, 0.29),
+    rgb(235, 8, 125)
+  );
+}
+
+.time-option-button-latest {
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(235, 8, 125),
+    rgb(234, 12, 215),
+    rgba(198, 31, 192, 0.29),
+    rgb(235, 8, 125)
+  );
+}
+
+.value-option-button-smallest {
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(235, 8, 125),
+    rgb(234, 12, 215),
+    rgba(198, 31, 192, 0.29),
+    rgb(235, 8, 125)
+  );
+}
+
+.value-option-button-largest {
+  border: 1.5px solid rgb(70, 5, 5);
+  border-radius: 20px;
+  color: rgb(68, 8, 8);
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 18px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(235, 8, 125),
+    rgb(234, 12, 215),
+    rgba(198, 31, 192, 0.29),
+    rgb(235, 8, 125)
+  );
+}
+
+.graph {
+  margin-top: 100px;
+}
+
+.clock-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  /* gap: 750px; */
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+#temperature-chart {
+  margin-top: 50px;
+}
+
+#humidity-chart {
+  margin-top: 50px;
+}
+/***************************** Common Class Properties ******************************/
+
+/* Button style 1 */
+.button-style-1 {
+  font-family: "Coiny", sans-serif;
+  box-shadow: 4px 6px 5px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.button-style-1:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  box-shadow: 2px 3px 2px rgba(0, 0, 0.5);
+  transform: scale(98%) rotate(3deg);
+  transition: 0.2s;
+}
+.button-style-1:active {
+  opacity: 0.7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+
+/* Button style 2 */
+.button-style-2 {
+  font-family: "Coiny", sans-serif;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.button-style-2:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  box-shadow: 5px 7px 5px rgba(0, 0, 0.5);
+  transform: scale(103%) rotate(-3deg);
+  transition: 0.2s;
+}
+.button-style-2:active {
+  opacity: 0.7;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+
+/* Button style 3 */
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 3px rgba(0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 3px rgba(0, 0, 0.5);
+  }
+}
+.button-style-3 {
+  font-family: "Coiny", sans-serif;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0.5);
+}
+.button-style-3:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  transform: scale(103%);
+  animation: glowing 800ms infinite;
+}
+.button-style-3:active {
+  opacity: 0.7;
+  animation: glowing 100ms infinite;
+}
+
+/* Button style 4 */
+.button-style-4 {
+  font-family: "Coiny", sans-serif;
+  box-shadow: 4px 6px 5px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.button-style-4:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  box-shadow: 2px 3px 2px rgba(0, 0, 0.5);
+  transform: scale(98%);
+  transition: 0.2s;
+}
+.button-style-4:active {
+  opacity: 0.7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+
+/* Button style 5 */
+.button-style-5 {
+  font-family: "Coiny", sans-serif;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+.button-style-5:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  box-shadow: 5px 7px 5px rgba(0, 0, 0.5);
+  transform: scale(106%);
+  transition: 0.2s;
+}
+.button-style-5:active {
+  opacity: 0.7;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0.5);
+  transition: 0.2s;
+}
+
+/* Hidden property */
+.hidden {
+  display: none !important; /* this style will always override all the other ones that are also applying */
+}
+
+/* Not allow property */
+.not-allow {
+  background-image: linear-gradient(
+    135deg,
+    rgb(183, 176, 181),
+    rgb(189, 178, 188),
+    rgb(189, 178, 188),
+    rgba(209, 194, 194),
+    rgb(167, 158, 163)
+  );
+  color: gray;
+}
+.not-allow:hover {
+  cursor: no-drop;
+}
+
+/* Shrink the components when expand the side bar */
+.body-container-shrink {
+  padding-left: 250px;
+}
+.temperature-picture-shrink {
+  margin-left: 60px;
+}
+
+/************************************* Edit Layout when the size of webpage change at some points ****************************************/
+@media (max-width: 1170px) {
+  /* Edit header */
+  .website-header {
+    height: auto;
+  }
+
+  /* Edit instruction-form */
+  .instruction-form-div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Edit picture */
+  .instruction-picture {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .instruction-picture img {
+    width: 200px;
+  }
+
+  .sun-picture {
+    margin: 0px auto;
+  }
+
+  /* Edit temperature and humidity supervisor */
+  .temperature-humidity-table {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  /* Edit filter table */
+  .filter-table-div {
+    grid-template-columns: 1fr;
+    column-gap: 30px;
+    margin: 20px;
+    gap: 20px;
+  }
+
+  .filter-button-div {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  th,
+  td {
+    height: 40px;
+    font-size: 16px;
+  }
+}
