@@ -1190,33 +1190,19 @@ function Unlock() {
 }
 
 /* Function to turn on/off the alarm */
-async function AlarmHandle(option) {
+function AlarmHandle(option) {
   if (option === "OFF") {
     /* Send command to ESP32 Web Server to turn off the buzzer */
-    await fetch(`http://${esp32IP}/Alarm?Status=OFF`, {
-      mode: "no-cors"
-    });
+    socket.send(`Alarm,OFF`);
   } else if (option === "ON") {
     /* Send command to ESP32 Web Server to turn on the buzzer */
-    await fetch(`http://${esp32IP}/Alarm?Status=ON`, {
-      mode: "no-cors"
-    });
+    socket.send(`Alarm,ON`);
   }
 }
 
 /* Function to turn on/off the bulb */
-async function BulbHandle(option) {
-  if (option === "OFF") {
-    /* Send command to ESP32 Web Server to turn off the buzzer */
-    await fetch(`http://${esp32IP}/Bulb?Status=OFF`, {
-      mode: "no-cors"
-    });
-  } else if (option === "ON") {
-    /* Send command to ESP32 Web Server to turn on the buzzer */
-    await fetch(`http://${esp32IP}/Bulb?Status=ON`, {
-      mode: "no-cors"
-    });
-  }
+function BulbHandle(option) {
+  socket.send(`Bulb,${option}`);
 }
 
 /* Function to send backend IP address to esp32 */
@@ -1224,40 +1210,24 @@ function SendBackendIP(backendIp) {
   socket.send(`backendIP,${backendIp}:5200`);
 }
 
-/* Function to send/unsend tz`emperature and humidty values from esp32 to webserver */
-async function SendHandle(option) {
-  if (option === "Send") {
-    /* Send command to ESP32 Web Server to send the temperature humidity values */
-    await fetch(`http://${esp32IP}/Start`, {
-      mode: "no-cors"
-    });
-  } else if (option === "Unsend") {
-    /* Send command to ESP32 Web Server to stop sending the temperature and humidity values */
-    await fetch(`http://${esp32IP}/Stop`, {
-      mode: "no-cors",
-    });
-  }
+/* Function to send/unsend temperature and humidty values from esp32 to webserver */
+function SendHandle(option) {
+  socket.send(`Webapi,${option}`);
 }
 
 /* Function to turn on realtime mode */
-async function RealtimeMode(status) { 
-  await fetch(`http://${esp32IP}:80/Realtime?Status=${status}`, {
-    mode: "no-cors"
-  });
+function RealtimeMode(status) { 
+  socket.send(`Ws,${status}`);
 }
 
 /* Function to send the safe range of temperature to esp32 */
-async function TemperatureRange(lowest, highest) { 
-  await fetch(`http://${esp32IP}:80/TemperatureRange?Lowest=${lowest}&Highest=${highest}`, {
-    mode: "no-cors"
-  });
+function TemperatureRange(lowest, highest) { 
+  socket.send(`Range,Temp,${lowest},${highest}`);
 }
 
 /* Function to send the safe range of humidity to esp32 */
-async function HumidityRange(lowest, highest) { 
-  await fetch(`http://${esp32IP}:80/HumidityRange?Lowest=${lowest}&Highest=${highest}`, {
-    mode: "no-cors"
-  });
+function HumidityRange(lowest, highest) { 
+  socket.send(`Range,Humid,${lowest},${highest}`);
 }
 
 /* Websocket */
@@ -1567,9 +1537,7 @@ function exportTableToExcel(tableID, filename = "") {
 }
 
 // Fucntion to update status of bulb and alarm mode
-async function UpdateStatus() {
+function UpdateStatus() {
   /* Send command to ESP32 Web Server to update the status of the bulb and alarm mode */
-    await fetch(`http://${esp32IP}/Update`, {
-      mode: "no-cors"
-    });
+  socket.send(`Update,0`);
 }
