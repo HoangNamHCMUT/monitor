@@ -1233,7 +1233,7 @@ function HumidityRange(lowest, highest) {
 /* Websocket */
 function WebsocketInit(esp32IP) {
   // Open websocket connection
-  socket = new WebSocket(`ws://${esp32IP}:80/ws`); // websocket handle
+  socket = new WebSocket(`ws://${esp32IP}/ws`); // websocket handle
   // Open connection handle
   socket.onopen = (event) => {
     console.log("WebSocket connection opened");
